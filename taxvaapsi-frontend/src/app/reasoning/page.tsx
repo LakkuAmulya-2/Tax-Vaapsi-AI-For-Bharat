@@ -52,7 +52,11 @@ export default function ReasoningPage() {
     for (let i = 0; i < PHASES.length; i++) {
       setActiveIdx(i)
       await new Promise(r => setTimeout(r, timings[i]))
-      setDoneSet(prev => new Set([...prev, i]))
+      setDoneSet(prev => {
+        const newSet = new Set(prev)
+        newSet.add(i)
+        return newSet
+      })
     }
     setActiveIdx(-1)
     const api = await apiPromise
