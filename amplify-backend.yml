@@ -1,0 +1,12 @@
+version: 1
+backend:
+  phases:
+    build:
+      commands:
+        - cd taxvaapsi-backend
+        - pip install -r requirements.txt
+        - python -m pytest --version || echo "Tests skipped"
+  artifacts:
+    baseDirectory: taxvaapsi-backend
+    files:
+      - '**/*'

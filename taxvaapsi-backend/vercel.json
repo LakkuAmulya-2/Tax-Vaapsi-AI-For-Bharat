@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "main.py"
+    }
+  ],
+  "env": {
+    "AWS_REGION": "ap-south-1",
+    "DYNAMODB_TABLE_PREFIX": "taxvaapsi_",
+    "USE_LOCAL_DYNAMODB": "false"
+  }
+}
