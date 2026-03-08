@@ -1,0 +1,17 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd taxvaapsi-frontend
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: taxvaapsi-frontend/.next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - taxvaapsi-frontend/node_modules/**/*
